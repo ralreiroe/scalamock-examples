@@ -1,4 +1,5 @@
-scalaVersion := "2.11.1"
+scalaVersion := "2.12.1"
 
 libraryDependencies +=
-  "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test"
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.5.0" % Test
+
