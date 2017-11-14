@@ -1,4 +1,4 @@
-package tests
+package testability
 
 import org.scalatest.{FlatSpec, Matchers}
 

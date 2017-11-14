@@ -1,10 +1,10 @@
-package tests
+package testability
 
 import org.scalatest.{FlatSpec, Matchers}
 
 object ProducerObject4 {
 
-  def someMethod(implicit co: ConfigObjectsTrait4) = {
+  def someMethod(implicit co: ConfigObjectsTrait4) = {    //<==== arg rather than object member; makes it replaceable while keeping object
 
     co.getString("queries.client")
 
