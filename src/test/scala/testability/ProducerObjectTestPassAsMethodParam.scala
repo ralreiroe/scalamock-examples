@@ -1,6 +1,6 @@
 package testability
 
-import org.scalatest.{FlatSpec, Matchers}
+import utils.Spec
 
 object ProducerObject4 {
 
@@ -22,14 +22,14 @@ trait ConfigObjectsTrait4 {
 
 }
 
-class ProducerTest4 extends FlatSpec with Matchers {
+class ProducerTest4 extends Spec {
 
-  "I can test some method with a different config by passing one in" should "work" in {
+  "I can test some method in ProducerObject by passing in a different config" in {
 
     implicit val co = new ConfigObjectsTrait4 {           //<========= replaced for testing
       override def getString(str: String): String = "blah"
     }
 
-    ProducerObject4.someMethod shouldBe "blah"
+    ProducerObject4.someMethod mustBe "blah"
   }
 }

@@ -24,12 +24,12 @@ trait ConfigObjectsTrait3 {
 
 }
 
-class ProducerClassInheritTest extends FlatSpec with Matchers {
+class ProducerClassInheritTest extends utils.Spec {
 
-  "testing a ProducerClass I can change by passing another Config" should "work" in {
+  "testing a ProducerClass I can change by overriding config" in {
 
     (new ProducerClassInherit {
       override lazy val config: Config = ConfigFactory.parseString("queries { client = \"select\" }") //replaced for testing
-    }).someMethod() shouldBe "select"
+    }).someMethod() mustBe "select"
   }
 }

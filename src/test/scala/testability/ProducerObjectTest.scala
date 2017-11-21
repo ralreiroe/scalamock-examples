@@ -1,15 +1,12 @@
 package testability
 
-import org.scalatest.{FlatSpec, Matchers}
-
 object ProducerObject {
 
   val co = new ConfigObjectsTrait {}      //<========= not replaceable for testing
-  import co._
 
   def someMethod() = {
 
-    getString("queries.client")
+    co.getString("queries.client")
 
   }
 }
@@ -25,10 +22,10 @@ trait ConfigObjectsTrait {
 
 }
 
-class ProducerTest extends FlatSpec with Matchers {
+class ProducerTest extends utils.Spec {
 
-  "testing a ProducerObject I cannot change" should "work" in {
+  "testing a ProducerObject I cannot change" in {
 
-    ProducerObject.someMethod() shouldBe "some query"
+    ProducerObject.someMethod() mustBe "some query"
   }
 }
