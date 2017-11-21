@@ -26,7 +26,7 @@ class ProducerTest4 extends FlatSpec with Matchers {
 
   "I can test some method with a different config by passing one in" should "work" in {
 
-    implicit val co = new ConfigObjectsTrait4 {           //<========= replaceable for testing
+    implicit val co = new ConfigObjectsTrait4 {           //<========= replaced for testing
       override def getString(str: String): String = "blah"
     }
 

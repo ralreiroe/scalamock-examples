@@ -29,7 +29,7 @@ class ProducerClassInheritTest extends FlatSpec with Matchers {
   "testing a ProducerClass I can change by passing another Config" should "work" in {
 
     (new ProducerClassInherit {
-      override lazy val config: Config = ConfigFactory.parseString("queries { client = \"select\" }")
+      override lazy val config: Config = ConfigFactory.parseString("queries { client = \"select\" }") //replaced for testing
     }).someMethod() shouldBe "select"
   }
 }
