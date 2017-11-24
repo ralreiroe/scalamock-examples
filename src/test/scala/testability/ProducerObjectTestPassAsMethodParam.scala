@@ -24,6 +24,16 @@ trait ConfigObjectsTrait4 {
 
 class ProducerTest4 extends Spec {
 
+  "I can only test (even compile) the method in ProducerObject4 if I provide a ConfigObjectsTrait4 object implicitely" in {
+
+    """ProducerObject4.someMethod mustBe "blah"""" mustNot compile
+  }
+  "I can test a method in ProducerObject by passing in the default instance" in {
+
+    implicit val co = new ConfigObjectsTrait4 {}
+
+    ProducerObject4.someMethod mustBe "some query"
+  }
   "I can test some method in ProducerObject by passing in a different config" in {
 
     implicit val co = new ConfigObjectsTrait4 {           //<========= replaced for testing
